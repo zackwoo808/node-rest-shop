@@ -10,9 +10,15 @@ router.get('/', (req, res, next) => {
 
 // handles incoming post requests
 router.post('/', (req, res, next) => {
+    const product = {
+        // these are extracted using bodyParser
+        name: req.body.name,
+        price: req.body.price,
+    };
     res.status(201).json({
         message: 'Handling POST requests to /products',
-    })
+        product: product,
+    });
 });
 
 // express uses :variableName for variables
